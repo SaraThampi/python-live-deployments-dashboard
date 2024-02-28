@@ -164,16 +164,16 @@ a { color: white}
         <!-- DEPLOYMENT -->
         <div class="grid-item blue"><a href="https://bc15-w8-projects-week-the-byte-stripes-frontend.vercel.app/">CodeCampus Events App</a></div>
         <div class="grid-item">HTML, CSS, JS</div>
-        <div class="grid-item">GH Pages</div>
+        <div class="grid-item">Vercel</div>
         <div class="grid-item-status">
             <!-- left status part -->
-            {% if banana_url %}
+            {% if campus_url %}
             <div class="green left-border-radius">{{ url_success_message }}</div>
             {% else %}
             <div class="orange left-border-radius">{{ url_failure_message }}</div>
             {% endif %}
             <!-- right status part -->
-            {% if banana_tp %}
+            {% if campus_tp %}
             <div class="green right-border-radius">{{ tp_success_message }}</div>
             {% else %}
             <div class="orange right-border-radius">{{ tp_failure_message }}</div>
