@@ -70,7 +70,7 @@ def home():
         page_to_scrape = requests.get("https://bc15-w8-projects-week-the-byte-stripes-frontend.vercel.app/")
         soup = BeautifulSoup(page_to_scrape.content, 'html.parser')
         first_touch_points = soup.findAll("button")
-        second_touch_points = soup.findAll("p")
+        second_touch_points = soup.findAll("h1")
         page_to_scrape.raise_for_status()  # Raise an exception for HTTP errors
 
         # Check if both lists are non-empty before proceeding
