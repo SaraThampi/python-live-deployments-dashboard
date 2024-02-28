@@ -65,7 +65,7 @@ def home():
         count_of_potentially_broken_sites += 1
         shelter_url = False
 
-    # SITE - "banana" APP CHECK
+    # SITE - "campus" APP CHECK
     try: 
         page_to_scrape = requests.get("https://bc15-w8-projects-week-the-byte-stripes-frontend.vercel.app/")
         soup = BeautifulSoup(page_to_scrape.content, 'html.parser')
@@ -81,7 +81,7 @@ def home():
             # print('The request went through suggesting the URL was valid, but the touch points you set may have changed')
             campus_tp = False
             count_of_potentially_broken_sites += 1
-        banana_url = True
+        campus_url = True
     except requests.exceptions.RequestException as e:
         # print("Error making request to shelter. Maybe there was a typo?") 
         # print(e)
@@ -337,7 +337,7 @@ def home():
     rubydex_url = rubydex_url,
     awesunsolar_url = awesunsolar_url,
     djangofirstproject_url = djangofirstproject_url,
-    banana_tp=banana_tp,
+    campus_tp=campus_tp,
     shelter_tp=shelter_tp,
     tailwind_tp=tailwind_tp,
     devlessons_tp=devlessons_tp,
