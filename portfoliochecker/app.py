@@ -18,7 +18,7 @@ def home():
     tp_failure_message = 'Touch points failed.'
 
     # STATUS FOR WHETHER A SITE WAS REACHED (i.e. a valid URL was provided)
-    banana_url = False
+    campus_url = False
     shelter_url = False
     tailwind_url = False
     devlessons_url = False
@@ -29,7 +29,7 @@ def home():
     madeupurl_url = False # deliberate fail example site
     google_url = False # deliberate fail example site
     # STATUS VARIABLES FOR WHETHER SPECIFIED TOUCHPOINTS WERE REACHED (e.g. a h1 tag with a specific class name)
-    banana_tp = False
+    campus_tp = False
     shelter_tp = False
     tailwind_tp = False
     devlessons_tp = False
@@ -69,28 +69,28 @@ def home():
     try: 
         page_to_scrape = requests.get("https://bc15-w8-projects-week-the-byte-stripes-frontend.vercel.app/")
         soup = BeautifulSoup(page_to_scrape.content, 'html.parser')
-        first_touch_points = soup.findAll("div", attrs={"class": "header"})
+        first_touch_points = soup.findAll("div")
         second_touch_points = soup.findAll("p")
         page_to_scrape.raise_for_status()  # Raise an exception for HTTP errors
 
         # Check if both lists are non-empty before proceeding
         if first_touch_points and second_touch_points:
-            banana_tp = True
+            campus_tp = True
             count_of_working_sites += 1
         else:
             # print('The request went through suggesting the URL was valid, but the touch points you set may have changed')
-            banana_tp = False
+            campus_tp = False
             count_of_potentially_broken_sites += 1
         banana_url = True
     except requests.exceptions.RequestException as e:
         # print("Error making request to shelter. Maybe there was a typo?") 
         # print(e)
         count_of_potentially_broken_sites += 1
-        banana_url = False
+        campus_url = False
 
     except Exception as e: # this checks for other erros fetching the site
         count_of_potentially_broken_sites += 1
-        banana_url = False
+        campus_url = False
 
     # SITE - "tailwind" APP CHECK
     try: 
@@ -329,7 +329,7 @@ def home():
     google_tp=google_tp,
     google_url=google_url,
     # PROJECT STATUS BOOLEAN VARIABLES
-    banana_url = banana_url,
+    campus_url = campus_url,
     shelter_url = shelter_url,
     tailwind_url = tailwind_url,
     devlessons_url = devlessons_url,
