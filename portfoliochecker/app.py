@@ -67,7 +67,7 @@ def home():
 
     # SITE - "banana" APP CHECK
     try: 
-        page_to_scrape = requests.get("https://jamesdiffeycoding.github.io/JS-Banana-and-Ivy-Game/")
+        page_to_scrape = requests.get("https://bc15-w8-projects-week-the-byte-stripes-frontend.vercel.app/")
         soup = BeautifulSoup(page_to_scrape.content, 'html.parser')
         first_touch_points = soup.findAll("div", attrs={"class": "header"})
         second_touch_points = soup.findAll("p")
@@ -206,7 +206,7 @@ def home():
 
     # SITE - "awesunsolar" APP CHECK
     try: 
-        page_to_scrape = requests.get("https://awesun-solar-visualiser.vercel.app/")
+        page_to_scrape = requests.get("https://awesun-solar-visualiser.vercel.app/", timeout=10)
         soup = BeautifulSoup(page_to_scrape.content, 'html.parser')
         first_touch_points = soup.findAll("div", attrs={"class": "backgroundImage"})
         second_touch_points = soup.findAll("p")
