@@ -69,7 +69,7 @@ def home():
     try: 
         page_to_scrape = requests.get("https://bc15-w8-projects-week-the-byte-stripes-frontend.vercel.app/")
         soup = BeautifulSoup(page_to_scrape.content, 'html.parser')
-        first_touch_points = soup.findAll("div")
+        first_touch_points = soup.findAll("button")
         second_touch_points = soup.findAll("p")
         page_to_scrape.raise_for_status()  # Raise an exception for HTTP errors
 
@@ -94,9 +94,9 @@ def home():
 
     # SITE - "tailwind" APP CHECK
     try: 
-        page_to_scrape = requests.get("https://jamesdiffeycoding.github.io/Tailwind-Responsive-Grid-Experiments/")
+        page_to_scrape = requests.get("https://towerofgod.fandom.com/wiki/Tower_of_God_Wiki")
         soup = BeautifulSoup(page_to_scrape.content, 'html.parser')
-        first_touch_points = soup.findAll("h1", attrs={"class": "text-4xl"})
+        first_touch_points = soup.findAll("h1")
         second_touch_points = soup.findAll("p")
         page_to_scrape.raise_for_status()  # Raise an exception for HTTP errors
 
